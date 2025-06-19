@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Tumor Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='start_style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <header id="header">
+        <div class="header-photo">
+            <img src="{{ url_for('static', filename='back3.png') }}" alt="Header Photo">
+        </div>
+    </header>
+    <div class="container">
+        <div class="content">
+            <div class="start-container">
+                <h2 class="main-heading">What are Brain Tumors?</h2>
+                <p>Brain tissue. Brain tumors can also happen near the brain tissue. Nearby locations include nerves, the pituitary gland, the pineal gland, and the membranes that cover the surface of the brain.</p>
+                <h2 class="main-heading">Types of Brain Tumors</h2>
+                <div class="row">
+                    <div class="column">
+                        <h3 class="main-heading">Pituitary</h3>
+                        <div class="tumor-type">
+                            <img src="{{ url_for('static', filename='pituitary_tumor.jpg') }}" alt="Pituitary Tumor" width="400" height="350">
+                            <p>Pituitary tumors are tumors that form in the pituitary gland near the brain. These tumors can cause changes in hormone levels.</p>
+                        </div>
+                        <h3 class="main-heading">Meningioma</h3>
+                        <div class="tumor-type">
+                            <img src="{{ url_for('static', filename='meningioma.jpg') }}" alt="Meningioma" width="400" height="350">
+                            <p>Meningioma is a tumor that grows from the membranes that surround the brain and spinal cord, called the meninges.</p>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <h3 class="main-heading">Glioma</h3>
+                        <div class="tumor-type">
+                            <img src="{{ url_for('static', filename='glioma.jpg') }}" alt="Glioma" width="300" height="300">
+                            <p>Glioma is a growth of cells that starts in the brain or spinal cord. The cells in a glioma look similar to healthy brain cells called glial cells.</p>
+                        </div>
+                        <h3 class="main-heading">Symptoms</h3>
+                        <ul class="symptoms">
+                            <li>Headache or pressure in the head that is worse in the morning.</li>
+                            <li>Headaches that happen more often and seem more severe.</li>
+                            <li>Nausea or vomiting.</li>
+                            <li>Eye problems, such as blurry vision, seeing double or losing sight on the sides of your vision.</li>
+                            <li>Losing feeling or movement in an arm or a leg.</li>
+                            <li>Trouble with balance.</li>
+                            <li>Speech problems.</li>
+                            <li>Feeling very tired.</li>
+                            <li>Confusion in everyday matters.</li>
+                            <li>Memory problems.</li>
+                            <li>Having trouble following simple commands.</li>
+                            <li>Personality or behavior changes.</li>
+                            <li>Seizures, especially if there is no history of seizures.</li>
+                            <li>Hearing problems.</li>
+                            <li>Dizziness or a sense that the world is spinning, also called vertigo.</li>
+                            <li>Feeling very hungry and gaining weight.</li>
+                        </ul>
+                       <form action="/predict" method="post">
+                        <button type="submit">Start Predict</button>
+                        </form>
+                    </div>     
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        $(document).ready(function(){
+            var header = $('#header');
+            $(window).scroll(function() {
+                var scroll = $(window).scrollTop();
+                if (scroll >= 50) {
+                    header.addClass('scrolled');
+                } else {
+                    header.removeClass('scrolled');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
